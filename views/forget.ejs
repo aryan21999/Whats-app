@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Sign-Up</Sign-Up>
+    <title>Forget-Password</Sign-Up>
     </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
@@ -16,17 +16,11 @@
         <div id="wrapper">
         </div>
         <div class="card text-center">
-            <h5 class="card-header">Registration</h5>
+            <h5 class="card-header">Forget-Password</h5>
             <div class="card-body">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEy0RnM81qo5Es2l1WQhFbOtV4hsbdb0FR4w&usqp=CAU"
                     height="134" width="134"><br><br>
-                <form action="/signup" method="post">
-                    <div class="input-group">
-                        <div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i
-                                    class="fas fa-user-tie"></i></span></div>
-                        <input class="form-control" type="text" onfocus="this.value=''" id="name" placeholder="Name...">
-                        <span class="addBtn"></span>
-                    </div><br>
+                <form action="/forgetpassword" method="post">
                     <div class="input-group">
                         <div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i
                                     class="fas fa-at"></i></span></div>
@@ -41,7 +35,14 @@
                             placeholder="Password...">
                         <span class="addBtn"></span>
                     </div><br>
-                    <button onclick="signUp()" action="signUp" class="btn btn-primary" type="submit" form="nameform" value="Submit" style="width:100%;">SignUp</button>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i
+                                    class="fas fa-lock"></i></span></div>
+                        <input class="form-control" type="confirmpassword" onfocus="this.value=''" id="confirmpassword"
+                            placeholder="confirm-Password...">
+                        <span class="addBtn"></span>
+                    </div><br>
+                    <button onclick="forget()" action="signUp" class="btn btn-primary" type="submit" form="nameform" value="Submit" style="width:100%;">Submit</button>
                 </form>
             </div>
         </div><br>

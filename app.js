@@ -23,6 +23,10 @@ app.get('/signup', function (req, res, next) {
   res.render(`${publicDirectoryPath}signup`)
 })
 
+app.get('/forget', function (req, res, next) {
+    res.render(`${publicDirectoryPath}forget`)
+  })
+
 app.get('/addContact', function (req, res, next) {
     res.render(`${publicDirectoryPath}addContact`)
   })
