@@ -1,0 +1,258 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .column {
+    float: left;
+    padding: 10px;
+    height: 300px;
+  }
+  
+  .left {
+    width: 25%;
+    height: 100px;
+  }
+  
+  .right {
+    width: 75%;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .search-box {
+    background: #c0c0c0;
+    padding: 10px 13px;
+  }
+  
+  .search-box .input-wrapper {
+    background: #fff;
+    border-radius: 40px;
+  }
+  
+  .search-box .input-wrapper i {
+    color: grey;
+    margin-left: 2px;
+    vertical-align: middle;
+  }
+  
+  input {
+    border: none;
+    border-radius: 40px;
+    font-size: large;
+    width: 80%;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  img {
+    vertical-align: middle;
+    border-style: none;
+  }
+  
+  .profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 40px;
+  }
+  
+  .friend-list {
+    padding: 10px 15px;
+    display: flex;
+    vertical-align: baseline;
+    background: #fff;
+    transition: 0.3s ease;
+  }
+  
+  .friend-list .text {
+    margin-left: 12px;
+    width: 70%;
+  }
+  
+  .friend-list .text h6 {
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
+
+  .h6, h6 {
+    font-size: 1rem;
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+  }
+  
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .small, small {
+    font-size: 80%;
+    font-weight: 400;
+  }
+  
+  hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top-color: currentcolor;
+    border-top-style: none;
+    border-top-width: 0px;
+    border-top: 1px solid rgba(0,0,0,.1);
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+  }
+  
+  .border-right {
+    border-right: 1px solid #dee2e6 !important;
+  }
+
+  .col-md-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+  
+  .friend-name {
+    margin-top: -10px;
+    /* padding: 10px 15px; */
+    display: flex;
+    vertical-align: baseline;
+    background: rgb(177, 177, 177);
+    /* background: #fff; */
+    transition: 0.3s ease;
+  }
+  
+  .friend-name .text {
+    margin-left: 12px;
+    width: 70%;
+  }
+  
+  .friend-name .text h6 {
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
+  
+  .chat-bubble {
+    padding: 10px 14px;
+    background: #eee;
+    margin: 10px 30px;
+    border-radius: 9px;
+    position: relative;
+    animation: fadeIn 1s ease-in;
+  }
+  
+  div {
+    display: block;
+  }
+  
+  .no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .offset-md-9 .chat-bubble {
+    background: #74b9ff;
+    color: #fff;
+  }
+  
+  .chat-bubble--right:after {
+    right: 0;
+    border-left-color: #74b9ff;
+    border-right: 0;
+    margin-right: -20px;
+  }
+  .chat-bubble:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-bottom: 0;
+    margin-top: -10px;
+  }
+  
+  .no-gutters>.col, .no-gutters>[class*=col-] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  
+  .offset-md-9 {
+    min-width: 7px;
+    margin-left: 75%;
+  }
+
+  .col-md-3 {
+    min-width: 7px;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  
+  .chat-bubble--left:after {
+    left: 0;
+    border-right-color: #eee;
+    border-left: 0;
+    margin-left: -20px;
+  }
+  
+  .chat-bubble:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-bottom: 0;
+    margin-top: -10px;
+  }
+  
+  .chat-box {
+    background: rgb(230, 230, 230);
+    position: fixed;
+    display: flex;
+    width: 1125px;
+    align-items: baseline;
+    padding: 10px 15px;
+    align-items: center;
+    margin-top: 440px;
+    bottom: 0;
+  }
+  
+  .chat-box i {
+    padding: 10px;
+    color: rgb(87, 86, 86);
+    margin-right: 0px;
+    font-size: 30px;
+  }
+  
+  .chat-box input {
+    padding: 0px 20px;
+    margin-bottom: 0px;
+    width: 940px;
+    text-align: left;
+  }
+  
+  button, input {
+    overflow: visible;
+  }
