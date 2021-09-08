@@ -17,7 +17,8 @@ router.post('/reg', async (req, res) => {
 router.post('/reg/login', async (req, res) => {
     try {
         const user = await User.findOne({email:req.body.email, password:req.body.password})
-        res.send(user)
+        const token = await user.generateAuthToken()
+        res.send({ user, token })
     } catch (e) {
         console.log(e)
         res.status(400).send()  
@@ -48,6 +49,32 @@ router.patch('/reg/me', auth, async (req, res) => {
     }
 })
 
+router.post('/reg/logout', auth, async (req, res) => {
+    try {
+        req.user.tokens = req.user.tokens.filter((token) => {
+            return token.token !== req.token
+        })
+        await req.user.save()
 
+        res.send("Logged Out")
+    } catch (e) {
+        res.status(500).send()
+    }
+})
+
+router.patch('/reg/forgot', async (req, res) => {
+    const updates = Object.keys(req.body)
+    const allowedUpdates = ['password']
+    try {
+        await User.updateOne({password: req.body.password})
+        const user  = await User.findOne({email: req.body.email})
+        res.status(200).send(user)
+        if (!user)
+        return res.status(400).send("User With Given Email Doesn't Exist!")
+     } catch (e) {
+            console.log(e)
+            res.status(500).send(e)
+        }
+})
 
 module.exports = router
