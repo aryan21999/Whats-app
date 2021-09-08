@@ -62,18 +62,21 @@ router.post('/reg/logout', auth, async (req, res) => {
     }
 })
 
-router.patch('/reg/forgot', async (req, res) => {
+router.patch('/reg/forget', async (req, res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ['password']
     try {
-        await User.updateOne({password: req.body.password})
+        await User.update({password: req.body.password})
         const user  = await User.findOne({email: req.body.email})
+        console.log(user)
+        // console.log(req.body.email)
+        // console.log(req.body.password)
         res.status(200).send(user)
         if (!user)
         return res.status(400).send("User With Given Email Doesn't Exist!")
-     } catch (e) {
-            console.log(e)
-            res.status(500).send(e)
+     } catch (error) {
+            console.log(error)
+            res.status(500).send(error)
         }
 })
 
