@@ -1,6 +1,7 @@
 const express = require('express')
 const db = require('./db/mongoose')
 const path = require('path')
+const userRouter = require('./routers/user')
 
 const app = express();
 const port = process.env.port || 3000
@@ -37,7 +38,7 @@ app.use(express.static(publicDirectoryPath))
 app.use(express.json())
 app.use(express.static("public"));
 
-// app.use(userRouter)
+app.use(userRouter)
 
 
 app.listen(port, () => {
