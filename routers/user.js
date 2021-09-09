@@ -66,14 +66,14 @@ router.patch('/reg/forget', async (req, res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ['password']
     try {
-        await User.update({password: req.body.password})
-        const user  = await User.findOne({email: req.body.email})
-        console.log(user)
-        // console.log(req.body.email)
-        // console.log(req.body.password)
-        res.status(200).send(user)
-        if (!user)
-        return res.status(400).send("User With Given Email Doesn't Exist!")
+        const user = User.findOneAndUpdate({email: req.body.email}, {password: req.body.password}, {new: true})
+        .then((newUser)=>{
+            console.log(newUser)
+            res.status(200).send(newUser)
+        })
+        .catch((error)=>{
+            return res.status(400).send("User With Given Email Doesn't Exist!" + error)
+        })
      } catch (error) {
             console.log(error)
             res.status(500).send(error)

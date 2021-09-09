@@ -2,10 +2,10 @@ const express = require('express')
 const db = require('./db/mongoose')
 const path = require('path')
 const userRouter = require('./routers/user')
+const friendRouter = require('./routers/friend')
 
 const app = express();
 const port = process.env.port || 3000
-
 
 app.use(express.static(__dirname + '././public'));
 const publicDirectoryPath = path.join(__dirname, '/views/')
@@ -39,7 +39,7 @@ app.use(express.json())
 app.use(express.static("public"));
 
 app.use(userRouter)
-
+app.use(friendRouter)
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}!`)
