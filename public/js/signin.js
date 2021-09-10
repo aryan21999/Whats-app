@@ -17,3 +17,21 @@ function logIn() {
             console.log(error);
         })
 }
+
+function submit() {
+    const email = document.getElementById("email").value
+    const newPassword = document.getElementById("newPassword").value
+
+    axios.patch("/reg/forget", {
+      email: email,
+      password: newPassword
+    })
+    .then(function (response) {
+      console.log(response)
+      console.log(response.data)
+      location.replace('http://localhost:3000')
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+  }
