@@ -17,6 +17,7 @@ router.post('/addFriends', auth, async (req, res) => {
   }
 })
 router.get('/list', auth, async (req, res) => {
+  // console.log(auth)
   const user = await User.findOne({email:req.user.email})
   try {
       // const friend = await Friend.find({ owner: req.user.email })
@@ -29,16 +30,19 @@ router.get('/list', auth, async (req, res) => {
 
 router.get('/friends/:id', auth, async (req, res) => {
   const _id = req.params.id
-
+  console.log(_id)
   try {
-      const friend = await Friend.findOne({ _id, owner: req.user.email })
+    console.log(req.user.email)
+    const friend = await Friend.findById({ _id, owner: req.user.email })
+    console.log(friend) 
 
       if (!friend) {
           return res.status(404).send()
       }
       res.send(friend)
   } catch (e) {
-      res.status(500).send()
+      res.status(500).send(e)
+      console.log(e)
   }
 })
 
