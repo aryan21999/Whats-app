@@ -1,20 +1,18 @@
 const express = require('express')
-const friend = require('../models/friend')
+const User = require('../models/user')
 const auth = require('../middleware/auth')
 const router = new express.Router()
 
-router.post('/friend', auth, async (req, res) => {
-  const friend = new Friend({
-    name: req.body.name,
-    email: req.body.email,
-    owner: req.user.email
-  })
+router.post('/friends', auth, async (req, res) => {
+  const user = await User.findOne({email:req.user.email})
   try {
-    await friend.save()
-    res.status(201).send(friend)
-} catch (e) {
-    res.status(400).send(e)
-}
+      await user.friends.push({name: req.body.name, email: req.body.email})
+      await user.save()
+      res.status(200).send(user.friends[user.friends.length - 1])
+  } catch (e) {
+      res.status(400).send(e)
+      console.log(e)
+  }
 })
 
 module.exports = router
