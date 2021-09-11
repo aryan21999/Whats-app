@@ -17,6 +17,10 @@
     width: 75%;
   }
   
+  .card {
+    border: none;
+  }
+
   .row:after {
     content: "";
     display: table;

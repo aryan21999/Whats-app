@@ -18,17 +18,18 @@ router.post('/addFriends', auth, async (req, res) => {
       console.log(e)
   }
 })
-// router.get('/list', auth, async (req, res) => {
-//   // console.log(auth)
-//   const user = await User.findOne({email:req.user.email})
-//   try {
-//       // const friend = await Friend.find({ owner: req.user.email })
-//       res.send(user.friends)
-//   } catch (e) {
-//       res.status(500).send(e)
-//       console.log(e)
-//   }
-// })
+
+router.get('/friends', auth, async (req, res) => {
+  // console.log(auth)
+  const user = await User.findOne({email:req.user.email})
+  try {
+      // const friend = await Friend.find({ owner: req.user.email })
+      res.send(user.friends)
+  } catch (e) {
+      res.status(500).send(e)
+      console.log(e)
+  }
+})
 
 // router.get('/friends/:id', auth, async (req, res) => {
 //   const _id = req.params.id
