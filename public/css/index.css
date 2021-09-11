@@ -9,15 +9,19 @@
   }
   
   .left {
-    width: 25%;
+    width: 22%;
     height: 100px;
   }
   
   .right {
-    width: 75%;
+    width: 78%;
   }
   
   .card {
+    margin: 2px;
+    padding: 5px;
+    width:310px;
+    text-align: left;
     border: none;
   }
 
@@ -26,21 +30,7 @@
     display: table;
     clear: both;
   }
-  .search-box {
-    background: #c0c0c0;
-    padding: 10px 13px;
-  }
-  
-  .search-box .input-wrapper {
-    background: #fff;
-    border-radius: 40px;
-  }
-  
-  .search-box .input-wrapper i {
-    color: grey;
-    margin-left: 2px;
-    vertical-align: middle;
-  }
+
   
   input {
     border: none;
@@ -54,22 +44,10 @@
     font-family: Arial, Helvetica, sans-serif;
   }
   
-  img {
-    vertical-align: middle;
-    border-style: none;
-  }
-  
-  .profile-image {
-    width: 50px;
-    height: 50px;
-    border-radius: 40px;
-  }
-  
   .friend-list {
     padding: 10px 15px;
     display: flex;
     vertical-align: baseline;
-    background: #fff;
     transition: 0.3s ease;
   }
   
@@ -144,7 +122,8 @@
     margin-top: 6px;
     margin-bottom: 0;
   }
-  
+
+ 
   .chat-bubble {
     padding: 10px 14px;
     background: #eee;

@@ -49,13 +49,5 @@ router.get('/friends', auth, async (req, res) => {
 //   }
 // })
 
-// router.get('/list', auth, async (req,res) => {
-//   try{
-//       const allFriends = await Friends.find()
-//       res.status(200).send(allFriends)
-//   } catch (e) {
-//       res.status(500).send(e)
-//   }
-// })
 
 module.exports = router
