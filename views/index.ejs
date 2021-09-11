@@ -18,13 +18,15 @@
     <nav class="navbar navbar-inverse" style="background: rgb(89, 161, 92);">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#" style="color: black;font-size: 22px;">Whats-App</a>
+                <a class="navbar-brand" href="/index" style="color: black;font-size: 22px;">Whats-App</a>
             </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" style="color: black;font-size: 22px;">Log Out  
-                    <span class="glyphicon glyphicon-log-out"
-                    style="color: black;font-size: 18px;"></span></a></li>
-            </ul>
+            <nav class="nav navbar-nav navbar-right">
+                <button onclick="logOut()" action="logOut" class="btn btn-primary" type="submit" form="nameform"
+                    value="Submit"
+                    style="border-radius: 5px; background: rgb(89, 161, 92); border: none; margin-right: 15px; margin-top: 4px; color: black; font-size: 22px;">
+                    Log Out </button>
+            </nav>
+
         </div>
     </nav>
 
@@ -68,7 +70,7 @@
         <div class="settings-tray">
             <div class="friend-name">
                 <div class="text">
-                    <h2>Rahul </h2>
+                    <h2 id="chatHeader"></h2>
                 </div>
             </div>
         </div>
