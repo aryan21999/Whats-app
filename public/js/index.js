@@ -28,6 +28,7 @@ axios.get('/friends', {
     document.getElementById('chatHeader').innerHTML = e.currentTarget.getAttribute('value')
 }
 
+
 function logOut() {
     console.log(localStorage.getItem("token"))
     axios.post('/reg/logout', {

@@ -19,8 +19,10 @@
   
   .card {
     margin: 2px;
+    border-radius: 7px;
     padding: 5px;
-    width:310px;
+    width:auto;
+    margin-left: 10px;
     text-align: left;
     border: none;
   }

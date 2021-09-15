@@ -1,6 +1,7 @@
 const express = require('express')
 const User = require('../models/user')
 const auth = require('../middleware/auth')
+const db = require('../db/mongoose')
 const router = new express.Router()
 
 router.post('/reg', async (req, res) => {

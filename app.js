@@ -3,6 +3,8 @@ const db = require('./db/mongoose')
 const path = require('path')
 const userRouter = require('./routers/user')
 const friendRouter = require('./routers/friend')
+const chatRouter = require('./routers/chat')
+
 
 const app = express();
 const port = process.env.port || 3000
@@ -40,6 +42,8 @@ app.use(express.static("public"));
 
 app.use(userRouter)
 app.use(friendRouter)
+app.use(chatRouter)
+
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}!`)
