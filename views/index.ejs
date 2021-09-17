@@ -85,9 +85,10 @@
                 <div class="col-12">
                     <div class="chat-box">
                         <span style="font-size:25px;">&#128512;</span>
-                        <input type="text" placeholder="Type your message here...">
+                        <input type="text" id="message" placeholder="Type your message here...">
                         <i style="font-size:25px" class="glyphicon glyphicon-paperclip"></i>
-                        <i style="font-size:25px" class="glyphicon glyphicon-send"></i>
+                        <button onclick="chatUser()" action="chatUser" id="send" type="submit" value="Submit" form="nameform"
+                         style="font-size:25px" class="glyphicon glyphicon-send"></button>
                     </div>
                 </div>
         </div>

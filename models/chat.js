@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const validator = require('validator')
 
 const chatSchema = new mongoose.Schema({
     sender: {

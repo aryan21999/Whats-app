@@ -223,6 +223,11 @@
     margin-top: 440px;
     bottom: 0;
   }
+
+  .chat-box button {
+    border: none;
+    background:rgb(230, 230, 230)
+  }
   
   .chat-box i {
     padding: 10px;

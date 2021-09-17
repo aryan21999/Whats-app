@@ -8,7 +8,6 @@ axios.get('/friends', {
     for (i = 0; i < response.data.length; i++) 
     {
       id = response.data[i]._id
-      console.log(response.data[i])
       friends += `<div class="row-8">
       <button id="${id}" class="card" onclick="openClick(event)" value="${response.data[i].name}"><h4>${response.data[i].name}</h4></button>
       </div><br>`
@@ -27,33 +26,49 @@ axios.get('/friends', {
         }
     e.currentTarget.className += " active";
     document.getElementById('chatHeader').innerHTML = e.currentTarget.getAttribute('value')
-}
 
-
-
-axios.get('/chatList', {
+axios.get('/chatsList', {
   headers: {
     Authorization: ('Bearer ', localStorage.getItem("token"))
   },
 })
 .then(function (response) {
-  var list = document.getElementById('chatBody')
-  list = `<h2 id="friends"> </h2>`
- 
-  for (i = 0; i < response.data.length; i++) {
-      id = response.data[i]._id
-      list += `<li id="${id}">${response.data[i].message}</li>`
+  var chat = ''
+  friendId = document.getElementsByClassName('active')[0].id
+  for (i = 0; i < response.data.length; i++) 
+  {
+    if(response.data[i].sender == 'test@test.com' && response.data[i].receiver == friendId) {
+      chat += `<div class="chat-panel" id=${i}><h3>${response.data[i].message}</h3></div>`
+    }
+    else if(response.data[i].sender == friendId && response.data[i].receiver == 'test@test.com'){
+      chat += `<div class="chat-panel" id=${i}><h3>${response.data[i].message}</h3></div>`
+    }
   }
-  console.log(response.data.message)
-  document.getElementById('chatBody').innerHTML = list
+  document.getElementById('chatBody').innerHTML = chat
 })
 .catch(function (error) {
-  if (error.response)
-    console.log(localStorage.token)
-  console.log(error.response.data);
+  console.log(error)
 });
+}
 
-
+function chatUser() {
+  const receiver = document.getElementsByClassName('active')[0].id
+  const message = document.getElementById("message").value
+  axios.post('/chat', {
+    friend: receiver,
+    message: message
+  }, {
+    headers: {
+      Authorization : ('Bearer ', localStorage.getItem("token"))
+    }})
+    .then(function (response) {
+      console.log(response)
+      console.log(response.data)
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+}
 
 function logOut() {
     console.log(localStorage.getItem("token"))
