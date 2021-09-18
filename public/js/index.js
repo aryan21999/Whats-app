@@ -12,8 +12,10 @@ axios.get('/friends', {
       <button id="${id}" class="card" onclick="openClick(event)" value="${response.data[i].name}"><h4>${response.data[i].name}</h4></button>
       </div><br>`
     }
+    console.log(response.data[0].owner)
     document.getElementById('friends').innerHTML = friends
     document.getElementById('chatHeader').innerHTML = response.data[0].name
+    document.getElementById('ownerId').innerHTML = response.data[0].owner
   })
   .catch(function (error) {
     console.log(error)
@@ -27,7 +29,7 @@ axios.get('/friends', {
     e.currentTarget.className += " active";
     document.getElementById('chatHeader').innerHTML = e.currentTarget.getAttribute('value')
 
-axios.get('/chatsList', {
+axios.get('/chatList', {
   headers: {
     Authorization: ('Bearer ', localStorage.getItem("token"))
   },

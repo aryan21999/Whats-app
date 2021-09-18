@@ -1,7 +1,6 @@
 const express = require('express')
 const db = require('./db/mongoose')
 const path = require('path')
-const bodyParser = require('body-parser')
 const userRouter = require('./routers/user')
 const friendRouter = require('./routers/friend')
 const chatRouter = require('./routers/chat')
@@ -41,7 +40,6 @@ app.use(express.static(publicDirectoryPath))
 app.use(express.json())
 app.use(express.static("public"));
 
-app.use(bodyParser.urlencoded({ extended: true }))
 app.use(userRouter)
 app.use(friendRouter)
 app.use(chatRouter)
