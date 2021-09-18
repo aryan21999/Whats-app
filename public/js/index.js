@@ -12,7 +12,7 @@ axios.get('/friends', {
       <button id="${id}" class="card" onclick="openClick(event)" value="${response.data[i].name}"><h4>${response.data[i].name}</h4></button>
       </div><br>`
     }
-    console.log(response.data[0].owner)
+    console.log(response.data[0])
     document.getElementById('friends').innerHTML = friends
     document.getElementById('chatHeader').innerHTML = response.data[0].name
     document.getElementById('ownerId').innerHTML = response.data[0].owner
