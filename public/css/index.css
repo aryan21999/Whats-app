@@ -9,12 +9,12 @@
   }
   
   .left {
-    width: 22%;
+    width: 25%;
     height: 100px;
   }
   
   .right {
-    width: 78%;
+    width: 75%;
   }
   
   .card {
@@ -99,7 +99,7 @@
     border-right: 1px solid #dee2e6 !important;
   }
 
-  .col-md-4 {
+  .col-md-3 {
     -ms-flex: 0 0 33.333333%;
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
@@ -107,11 +107,9 @@
   
   .friend-name {
     margin-top: -10px;
-    /* padding: 10px 15px; */
     display: flex;
     vertical-align: baseline;
     background: rgb(177, 177, 177);
-    /* background: #fff; */
     transition: 0.3s ease;
   }
   
@@ -177,14 +175,15 @@
     margin-top: -10px;
   }
   
-  .no-gutters>.col, .no-gutters>[class*=col-] {
+  .no-gutters>.col, 
+  .no-gutters>[class*=col-] {
     padding-right: 0;
     padding-left: 0;
   }
   
   .offset-md-9 {
     min-width: 7px;
-    margin-left: 75%;
+    margin-left: 73%;
   }
 
   .col-md-3 {

@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const jwt = require('jsonwebtoken')
 
-
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -38,6 +37,12 @@ const userSchema = new mongoose.Schema({
             required: true
         }
     }]
+})
+
+userSchema.virtual('friends', {
+    ref: 'Friend',
+    localField: '_id',
+    foreignField: 'owner'
 })
 
 userSchema.methods.generateAuthToken = async function () {

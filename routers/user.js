@@ -1,17 +1,18 @@
+const http = require('http');
 const express = require('express')
 const User = require('../models/user')
 const auth = require('../middleware/auth')
-const db = require('../db/mongoose')
+// const db = require('../db/mongoose')
 const router = new express.Router()
 
 router.post('/reg', async (req, res) => {
     const user = new User(req.body)
-
     try {
         await user.save()
         res.status(201).send(user)
-    } catch (e) {
-        res.status(400).send(e)
+    } catch (error) {
+        console.log(error)
+        res.status(400).send(error)
     }
 })
 

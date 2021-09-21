@@ -1,7 +1,8 @@
+const http = require('http');
 const express = require('express')
 const Friend = require('../models/friend')
 const auth = require('../middleware/auth')
-const db = require('../db/mongoose')
+// const db = require('../db/mongoose')
 const router = new express.Router()
 
 

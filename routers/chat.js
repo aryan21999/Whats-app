@@ -11,7 +11,6 @@ router.post('/chat', auth, async (req, res) => {
         message: req.body.message
     })
     try {
-        console.log(chat)
         await chat.save()
         res.status(201).send(chat)
     } catch (e) {
@@ -21,8 +20,8 @@ router.post('/chat', auth, async (req, res) => {
 
 router.get('/chatList', auth, async (req,res) => {
     try{
-        const allChat = await Chat.find()
-        res.status(200).send(allChat)
+        const chat = await Chat.find()
+        res.status(200).send(chat)
     } catch (e) {
         res.status(500).send(e)
     }
