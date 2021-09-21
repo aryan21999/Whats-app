@@ -21,7 +21,7 @@ router.post('/chat', auth, async (req, res) => {
 router.get('/chatList', auth, async (req,res) => {
     try{
         const chat = await Chat.find()
-        res.status(200).send(chat)
+        res.send(chat)
     } catch (e) {
         res.status(500).send(e)
     }

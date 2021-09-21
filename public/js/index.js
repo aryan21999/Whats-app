@@ -16,7 +16,7 @@ axios.get('/friends', {
         document.getElementById('chatHeader').innerHTML = response.data[0].name
         document.getElementById('ownerId').innerHTML = response.data[0].owner
         ownerEmail = response.data[0].owner
-        console.log(ownerEmail)
+        // console.log(ownerEmail)
         inboxMsg(window[document.getElementById('chatBody').innerHTML])
     })
     .catch(function(error) {
@@ -42,12 +42,14 @@ function inboxMsg() {
         .then(function(response) {
             var chat = ''
             friendId = document.getElementsByClassName('active')[0].id
-            console.log(friendId)
             for (i = 0; i < response.data.length; i++) {
-                if (response.data[i].sender == ownerEmail && response.data[i].receiver == friendId) {
+                console.log(response.data[i].sender, response.data[i].receiver)
+                if (response.data[i].sender == ownerEmail && response.data[i].receiver == friendId){
                     chat += `<div class="chat-panel col-md-3 offset-md-9 chat-bubble chat-bubble--right" id=${i}><h4>${response.data[i].message}</h4></div>`
-                } else if (response.data[i].sender == friendId && response.data[i].receiver == ownerEmail) {
-                    chat += `<div class="chat-panel col-md-3 chat-bubble--left" id=${i}><h4>${response.data[i].message}</h4></div>`
+                }
+                else if(response.data[i].sender == friendId && response.data[i].receiver == ownerEmail){
+                    console.log("Receiver")
+                    chat += `<div class="chat-panel col-md-3 chat-bubble chat-bubble--left" id=${i}><h4>${response.data[i].message}</h4></div>`
                 }
             }
             document.getElementById('chatBody').innerHTML = chat
@@ -59,7 +61,9 @@ function inboxMsg() {
 
 function chatUser() {
     const receiver = document.getElementsByClassName('active')[0].id
+    console.log(receiver)
     const message = document.getElementById("message").value
+    console.log(message)
     axios.post('/chat', {
             friend: receiver,
             message: message

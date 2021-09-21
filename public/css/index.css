@@ -125,8 +125,9 @@
 
  
   .chat-bubble {
+    float: initial;
     padding: 10px 14px;
-    background: #eee;
+    background: #93c8e2;
     margin: 10px 30px;
     border-radius: 9px;
     position: relative;
@@ -188,16 +189,21 @@
 
   .col-md-3 {
     min-width: 7px;
+    border-style: ridge;    
+    border-radius: 9px;
     -ms-flex: 0 0 25%;
     flex: 0 0 25%;
     max-width: 25%;
   }
   
-  .chat-bubble--left:after {
-    left: 0;
-    border-right-color: #eee;
-    border-left: 0;
-    margin-left: -20px;
+  .chat-bubble--left {
+    float: initial;
+    padding: 10px 14px;
+    background: white;
+    margin: 10px;
+    border-radius: 9px;
+    position: relative;
+    animation: fadeIn 1s ease-in;
   }
   
   .chat-bubble:after {
